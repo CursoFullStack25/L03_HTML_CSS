@@ -5,14 +5,14 @@
 
 /* Regla para etiquetas: afecta a todos los párrafos */
 p {
-  color: #222; /* color del texto */
+  color: var(--text-color); /* color del texto */
 }
 
 /* Clase: se usa con class="resaltar" o cualquier otro nombre */
 .resaltar {
-  background: #fff7c2; /* fondo suave */
-  border: 1px solid #f0e5a0;
-  color: #5a4720;
+  background: var(--soft-bg); /* fondo suave */
+  border: 1px solid var(--c4);
+  color: var(--c1);
 }
 
 /* Otra clase de ejemplo para cambiar la fuente */
@@ -24,31 +24,31 @@ p {
 /* Id: debe ser único en la página */
 #unico-ejemplo {
   padding: 8px;
-  border-left: 4px solid #4b8bf5;
-  background: #f0f8ff;
+  border-left: 4px solid var(--c2);
+  background: var(--soft-bg);
 }
 
 /* Estilos de ejemplo para mostrar block vs inline */
 .box-block {
-  background: #e9f5ff;
-  border: 1px solid #cfe8ff;
+  background: var(--page-bg);
+  border: 1px solid var(--page-bg);
   padding: 10px;
   margin: 8px 0;
 }
 
 .example-inline {
   display: inline-block; /* se usa a veces para poder aplicar padding/margin y seguir en línea */
-  background: #fff4e6;
+  background: var(--soft-bg);
   padding: 4px 6px;
   border-radius: 4px;
-  border: 1px solid #ffdba8;
+  border: 1px solid var(--c4);
 }
 
 /* Estilos para el diagrama del box model */
 .diagram {
   max-width: 100%;
   height: auto;
-  border: 1px solid #e1e7ee;
+  border: 1px solid var(--page-bg);
   border-radius: 6px;
   display: block;
   margin: 8px 0;
@@ -57,8 +57,8 @@ p {
 /* Estilos comunes para la página de ejercicios */
 .answer {
   display: none;
-  background: #f8fff4;
-  border: 1px solid #d7f0d0;
+  background: var(--soft-bg);
+  border: 1px solid var(--soft-bg);
   padding: 10px;
   border-radius: 4px;
 }
@@ -66,7 +66,7 @@ p {
   display: inline-block;
   margin-top: 8px;
   padding: 6px 8px;
-  background: #4b8bf5;
+  background: var(--c2);
   color: white;
   border-radius: 4px;
   text-decoration: none;

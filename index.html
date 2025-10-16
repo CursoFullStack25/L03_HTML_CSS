@@ -9,16 +9,46 @@
     <!-- Estilo interno: se escribe dentro del head -->
     <style>
         /* Estilos internos (ejemplo de internal CSS) */
+        :root {
+            /* Paleta editable: cambia estos valores para probar otra paleta */
+            /* Roles:
+               --c1 : color oscuro principal (texto destacado, títulos sobre fondos claros)
+               --c2 : color de acento / lado izquierdo del header (acento fuerte)
+               --c3 : color de acento claro / lado derecho del header (acento brillante)
+               --c4 : color suave / fondo de elementos resaltados (cards, badges)
+            */
+            --c1: #7B542F;
+            /* color 1 (oscuro) */
+            --c2: #B6771D;
+            /* color 2 (acento) */
+            --c3: #FF9D00;
+            /* color 3 (acento claro) */
+            --c4: #FFCF71;
+            /* color 4 (suave) */
+            /* variables semánticas (útiles para reemplazar colores inline) */
+            --accent: var(--c3);
+            /* color de acento principal */
+            --soft-bg: var(--c4);
+            /* fondo suave para notas/badges */
+            --muted: #555;
+            /* texto secundario */
+            --muted-dark: #333;
+            /* texto principal oscuro */
+            --page-bg: #f6f9fc;
+            --text-color: #1a1a1a;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.4;
             margin: 20px;
-            background: #f6f9fc;
-            color: #1a1a1a;
+            background: var(--page-bg);
+            color: var(--text-color);
         }
 
         header {
-            background: linear-gradient(90deg, #4b8bf5, #6bd3ff);
+            /* usa los colores de la paleta */
+            background: linear-gradient(90deg, var(--c2), var(--c3));
             color: white;
             padding: 12px 16px;
             border-radius: 6px;
@@ -39,7 +69,9 @@
 
         /* clase que puede repetirse */
         .resaltar {
-            background: #fff7c2;
+            /* fondo claro de la paleta y texto con el color oscuro principal */
+            background: var(--c4);
+            color: var(--c1);
             padding: 6px 8px;
             border-radius: 4px;
             display: inline-block;
@@ -57,6 +89,12 @@
 </head>
 
 <body>
+    <!-- Header: usa --c2 (izquierda) y --c3 (derecha) en un gradiente.
+        Uso recomendado:
+        - Títulos / texto principal: usar --c1 sobre fondos claros.
+        - Elementos destacados (badges, resaltar): fondo --c4 y texto --c1.
+        - Para cambiar la paleta sustituir los valores en :root más arriba.
+    -->
     <header>
         <h1 id="titulo-principal">Introducción sencilla a CSS</h1>
         <p>Verás tres formas de añadir CSS: inline (en la etiqueta), dentro de <code>&lt;head&gt;</code> y en un archivo
@@ -69,8 +107,10 @@
         <h2>1) CSS inline (en la misma etiqueta)</h2>
         <p>El estilo inline se escribe dentro de la etiqueta HTML con el atributo <code>style="..."</code>. Se usa para
             cambios rápidos y puntuales. (Se mantiene aquí como ejemplo didáctico).</p>
-        <p style="color: #d6336c; font-weight: bold;">Este párrafo usa <em>style</em> inline: color rosa y negrita.</p>
-        <p style="background:#e6f7ff; padding:8px; border-radius:4px;">También puedes cambiar fondo, tamaño y más con
+        <p style="color: var(--accent); font-weight: bold;">Este párrafo usa <em>style</em> inline: color de acento y
+            negrita.</p>
+        <p style="background:var(--soft-bg); padding:8px; border-radius:4px;">También puedes cambiar fondo, tamaño y más
+            con
             inline.</p>
     </section>
 
@@ -119,7 +159,8 @@
         <p>Ejemplos prácticos (observa cómo se comportan al colocarlos en la misma línea):</p>
         <!-- Ejemplo inline: uso de style inline como ejemplo didáctico -->
         <p>
-            Texto antes del <span style="background:#ffefef; color:#b3003a; padding:4px; border-radius:3px;">span en
+            Texto antes del <span
+                style="background:var(--soft-bg); color:var(--c1); padding:4px; border-radius:3px;">span en
                 línea (inline)</span> y texto después. El <code>span</code> no rompe la línea.
         </p>
 
@@ -156,8 +197,9 @@
         <figure>
             <img src="recursos/diagramas/diagramaCaracteristicasCaja01.png"
                 alt="Diagrama características de la caja (margin/padding/border/content)" class="diagram">
-            <figcaption style="font-size:0.9rem; color:#555;">Diagrama del <em>box model</em>. Archivo:
-                <code>recursos/diagramas/diagramaCaracteristicasCaja01.png</code>.</figcaption>
+            <figcaption style="font-size:0.9rem; color:var(--muted);">Diagrama del <em>box model</em>. Archivo:
+                <code>recursos/diagramas/diagramaCaracteristicasCaja01.png</code>.
+            </figcaption>
         </figure>
     </section>
 
@@ -173,8 +215,9 @@
         <p>Si quieres, puedo añadir ejercicios con pistas y soluciones para que tus estudiantes practiquen.</p>
     </section>
 
-    <footer style="margin-top:18px; font-size:0.95rem; color:#333;">Esta página está pensada para acompañarte paso a
-        paso. Prueba los ejemplos, cambia valores y experimenta. — <h2><a href="tl03.html">Ir a ejercicios</a></h2></footer>
+    <footer style="margin-top:18px; font-size:0.95rem; color:var(--muted-dark);">Esta página está pensada para
+        acompañarte paso a paso. Prueba los ejemplos, cambia valores y experimenta. — <h2><a href="tl03.html">Ir a ejercicios</a></h2>
+    </footer>
 
 </body>
 
