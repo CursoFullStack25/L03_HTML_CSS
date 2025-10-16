@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="./recursos/iconos/contenido-del-sitio-web.png" type="image/x-icon" />
+    <title>Introducción a CSS — Inline, Head y Externo</title>
+    <!-- Estilo interno: se escribe dentro del head -->
+    <style>
+        /* Estilos internos (ejemplo de internal CSS) */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4;
+            margin: 20px;
+            background: #f6f9fc;
+            color: #1a1a1a;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4b8bf5, #6bd3ff);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+        }
+
+        section {
+            background: white;
+            padding: 12px 14px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* clase que puede repetirse */
+        .resaltar {
+            background: #fff7c2;
+            padding: 6px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* id: único por página */
+        #titulo-principal {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            letter-spacing: 0.4px;
+        }
+    </style>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="titulo-principal">Introducción sencilla a CSS</h1>
+        <p>Verás tres formas de añadir CSS: inline (en la etiqueta), dentro de <code>&lt;head&gt;</code> y en un archivo
+            externo. También explicamos <strong>class</strong>, <strong>id</strong>, y la diferencia entre elementos
+            <strong>block</strong> e <strong>inline</strong>.
+        </p>
+    </header>
+
+    <section>
+        <h2>1) CSS inline (en la misma etiqueta)</h2>
+        <p>El estilo inline se escribe dentro de la etiqueta HTML con el atributo <code>style="..."</code>. Se usa para
+            cambios rápidos y puntuales. (Se mantiene aquí como ejemplo didáctico).</p>
+        <p style="color: #d6336c; font-weight: bold;">Este párrafo usa <em>style</em> inline: color rosa y negrita.</p>
+        <p style="background:#e6f7ff; padding:8px; border-radius:4px;">También puedes cambiar fondo, tamaño y más con
+            inline.</p>
+    </section>
+
+    <section>
+        <h2>2) CSS en la sección &lt;head&gt; (internal)</h2>
+        <p>Los estilos escritos en una etiqueta <code>&lt;style&gt;</code> dentro del <code>&lt;head&gt;</code> se
+            aplican a toda la página. Útil para una sola página o para pruebas rápidas.</p>
+        <p>El encabezado de la página y los bloques están estilos por el CSS interno (mira el color y la tipografía).
+        </p>
+    </section>
+
+    <section>
+        <h2>3) CSS externo (archivo .css)</h2>
+        <p>El CSS externo va en un archivo aparte y se enlaza con
+            <code>&lt;link rel="stylesheet" href="estilos.css"&gt;</code>. Es la mejor forma para proyectos con varias
+            páginas.
+        </p>
+        <p class="resaltar">Este texto usa la <code>class="resaltar"</code> definida en el CSS (internal y externo
+            pueden
+            afectar la misma clase).</p>
+    </section>
+
+    <section>
+        <h2>Class vs Id</h2>
+        <p><strong>class</strong>: se puede usar en muchos elementos. <strong>id</strong>: es único en la página (solo
+            un
+            elemento debe tener ese id).</p>
+        <p class="resaltar">Ejemplo con <code>class</code>: esta etiqueta puede repetirse varias veces.</p>
+        <p id="unico-ejemplo">Ejemplo con <code>id</code>: este id debe ser único en la página.</p>
+        <p>En el archivo externo verás reglas que apuntan a clases (<code>.mi-clase</code>) y a ids
+            (<code>#mi-id</code>).
+        </p>
+    </section>
+
+    <section>
+        <h2>Block vs Inline</h2>
+        <p>Los elementos HTML pueden ser de tipo <strong>block</strong> o <strong>inline</strong>:</p>
+        <ul>
+            <li><strong>Block</strong>: ocupan todo el ancho disponible y empiezan en una nueva línea. Ejemplos:
+                <code>div</code>, <code>p</code>, <code>h1</code>.
+            </li>
+            <li><strong>Inline</strong>: ocupan solo el espacio necesario y pueden estar dentro de la misma línea.
+                Ejemplos: <code>span</code>, <code>a</code>, <code>strong</code>.</li>
+        </ul>
+
+        <p>Ejemplos prácticos (observa cómo se comportan al colocarlos en la misma línea):</p>
+        <!-- Ejemplo inline: uso de style inline como ejemplo didáctico -->
+        <p>
+            Texto antes del <span style="background:#ffefef; color:#b3003a; padding:4px; border-radius:3px;">span en
+                línea (inline)</span> y texto después. El <code>span</code> no rompe la línea.
+        </p>
+
+        <!-- Ejemplo block: div ocupa todo el ancho -->
+        <div class="box-block">Este es un <code>div</code> (block). Observa que ocupa toda la línea y crea un salto
+            antes y después.</div>
+
+        <p>Puedes cambiar estos ejemplos: añade más <code>span</code> o añade clases a los <code>div</code> para ver el
+            efecto.</p>
+    </section>
+
+    <section>
+        <h2>Pequeña lista de propiedades básicas</h2>
+        <ul>
+            <li><code>color</code> — cambia el color del texto.</li>
+            <li><code>background</code> o <code>background-color</code> — cambia el fondo de un elemento.</li>
+            <li><code>font-family</code> — cambia la fuente (tipografía).</li>
+            <li><code>font-size</code> — tamaño del texto.</li>
+            <li><code>padding</code> y <code>margin</code> — espacio interno y externo.</li>
+            <li><code>border</code> — bordes alrededor del elemento.</li>
+            <li><code>text-align</code> — alinear texto (left, center, right).</li>
+        </ul>
+        <p>Estas son las más comunes al empezar. En otras páginas veremos posicionamiento, flexbox, grid y animaciones.
+        </p>
+    </section>
+
+    <section>
+        <h2>Caja (box model) — borde, padding y margen</h2>
+        <p>La caja de cada elemento tiene varias partes: <strong>content</strong> (contenido), <strong>padding</strong>
+            (espacio interno), <strong>border</strong> (borde) y <strong>margin</strong> (espacio externo).</p>
+        <p>Abajo hay un diagrama que explica visualmente estas partes. La imagen ya está incluida desde la carpeta
+            <code>recursos/diagramas</code>.
+        </p>
+        <figure>
+            <img src="recursos/diagramas/diagramaCaracteristicasCaja01.png"
+                alt="Diagrama características de la caja (margin/padding/border/content)" class="diagram">
+            <figcaption style="font-size:0.9rem; color:#555;">Diagrama del <em>box model</em>. Archivo:
+                <code>recursos/diagramas/diagramaCaracteristicasCaja01.png</code>.</figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>Ejemplo práctico editable</h2>
+        <p>Abre este archivo y prueba a cambiar:</p>
+        <ol>
+            <li>Un color en un <code>style="color: ..."</code> (inline).</li>
+            <li>Una propiedad dentro del bloque <code>&lt;style&gt;</code> del <code>&lt;head&gt;</code> (internal).
+            </li>
+            <li>Una regla en <code>estilos.css</code> (external) y luego recarga la página.</li>
+        </ol>
+        <p>Si quieres, puedo añadir ejercicios con pistas y soluciones para que tus estudiantes practiquen.</p>
+    </section>
+
+    <footer style="margin-top:18px; font-size:0.95rem; color:#333;">Esta página está pensada para acompañarte paso a
+        paso. Prueba los ejemplos, cambia valores y experimenta. — <h2><a href="tl03.html">Ir a ejercicios</a></h2></footer>
+
+</body>
+
+</html>

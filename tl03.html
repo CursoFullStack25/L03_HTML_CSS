@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ejercicios: Practica CSS básico</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Pequeños estilos locales para la página de ejercicios */
+        .exercise {
+            margin-bottom: 18px;
+        }
+
+        .exercise h3 {
+            margin: 6px 0;
+        }
+
+        .answer {
+            display: none;
+            background: #f8fff4;
+            border: 1px solid #d7f0d0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 8px;
+            background: #4b8bf5;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function toggleAnswer(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (el.style.display === 'none' || el.style.display === '') el.style.display = 'block'; else el.style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+    <header style="background:#4b8bf5;color:white;padding:12px 14px;margin-bottom:14px;border-radius:6px;">
+        <h1 style="margin:0;">Ejercicios — CSS básico</h1>
+    </header>
+
+    <main style="max-width:800px;margin:0 auto;padding:0 14px;">
+        <p>Estos ejercicios complementan la página principal. Intenta resolverlos y luego pulsa "Mostrar respuesta" para
+            comparar.</p>
+
+        <section class="exercise">
+            <h3>Ejercicio 1 — Diferencia inline / internal / external</h3>
+            <p>Tienes un párrafo que actualmente tiene <code>style="color: red;"</code> inline. ¿Cómo cambiarías su
+                color a azul modificando el CSS interno (en <code>&lt;style&gt;</code> del head) sin editar el atributo
+                <code>style</code>?
+            </p>
+            <p class="hint"><strong>Pista:</strong> Si no puedes sobrescribir un style inline directamente, piensa en
+                añadir una clase al elemento y escribir una regla para esa clase dentro del bloque
+                <code>&lt;style&gt;</code>.</p>
+            <button class="btn" onclick="toggleAnswer('a1')">Mostrar respuesta</button>
+            <div id="a1" class="answer">
+                <p>Respuesta: Añade una regla que apunte al selector adecuado. Si el párrafo tiene
+                    <code>class="mi-parrafo"</code>, en el <code>&lt;style&gt;</code> escribe:
+                    <code>.mi-parrafo { color: blue; }</code>. Si no tiene clase, agrega una clase y aplica la regla.
+                </p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 2 — Class vs Id</h3>
+            <p>¿Cuándo conviene usar <code>class</code> y cuándo <code>id</code>? Da un ejemplo práctico.</p>
+            <p class="hint"><strong>Pista:</strong> Piensa cuántos elementos necesitarán ese mismo estilo: si varios,
+                usa <code>class</code>; si solo uno y único, usa <code>id</code>.</p>
+            <button class="btn" onclick="toggleAnswer('a2')">Mostrar respuesta</button>
+            <div id="a2" class="answer">
+                <p>Respuesta: Usa <code>class</code> cuando quieras aplicar el mismo estilo a varios elementos (por
+                    ejemplo: varios botones con la clase <code>.btn</code>), y <code>id</code> cuando el estilo es para
+                    un único elemento de la página (por ejemplo: el contenedor principal <code>#main</code>).</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 3 — Box model</h3>
+            <p>Si un <code>div</code> tiene <code>width: 200px;</code> y <code>padding: 10px;</code> y
+                <code>border: 2px solid;</code>, ¿cuál es el ancho total que ocupa (su 'outer width') en el modelo de
+                caja por defecto?
+            </p>
+            <p class="hint"><strong>Pista:</strong> Suma padding izquierdo+derecho y border izquierdo+derecho al ancho
+                declarado.</p>
+            <button class="btn" onclick="toggleAnswer('a3')">Mostrar respuesta</button>
+            <div id="a3" class="answer">
+                <p>Respuesta: Ancho total = width + padding-left + padding-right + border-left + border-right = 200 + 10
+                    + 10 + 2 + 2 = 224px.</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 4 — Block vs Inline</h3>
+            <p>¿Por qué un <code>span</code> no hace salto de línea mientras que un <code>div</code> sí? Escribe una
+                oración corta que lo explique.</p>
+            <p class="hint"><strong>Pista:</strong> Observa cómo cada elemento ocupa el espacio en la línea: los block
+                crean una nueva línea; los inline no.</p>
+            <button class="btn" onclick="toggleAnswer('a4')">Mostrar respuesta</button>
+            <div id="a4" class="answer">
+                <p>Respuesta: Porque por defecto los <code>span</code> son elementos inline que solo ocupan el espacio
+                    necesario y no crean saltos; los <code>div</code> son block y ocupan la línea completa creando salto
+                    antes y después.</p>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 5 — Cambiar la fuente</h3>
+            <p>Quieres que toda la página use la fuente Georgia. ¿Qué regla CSS añades (en el archivo externo o en
+                &lt;style&gt;)?</p>
+            <p class="hint"><strong>Pista:</strong> La regla debe aplicarse al elemento raíz que engloba todo el texto
+                visible en la página.</p>
+            <button class="btn" onclick="toggleAnswer('a5')">Mostrar respuesta</button>
+            <div id="a5" class="answer">
+                <p>Respuesta (CSS):</p>
+                <pre><code>body {
+  font-family: 'Georgia', serif;
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 6 — Centrar un bloque</h3>
+            <p>Tienes un <code>div</code> con <code>width: 600px;</code>. ¿Cómo lo centras horizontalmente con CSS?</p>
+            <p class="hint"><strong>Pista:</strong> Usa <code>margin</code> para auto en los laterales; hay una
+                abreviatura corta para esto.</p>
+            <button class="btn" onclick="toggleAnswer('a6')">Mostrar respuesta</button>
+            <div id="a6" class="answer">
+                <p>Respuesta (CSS):</p>
+                <pre><code>.mi-contenedor {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* abreviatura: margin: 0 auto; */
+}
+</code></pre>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 7 — Especificidad (specificity)</h3>
+            <p>Si existe esta regla en un archivo externo: <code>.texto { color: red; }</code> pero el elemento tiene
+                <code>style="color: blue;"</code> inline, ¿qué color se verá y por qué? Muestra un ejemplo de HTML.
+            </p>
+            <p class="hint"><strong>Pista:</strong> Recuerda la jerarquía: estilos de línea (inline) suelen tener mayor
+                prioridad que clases y selectores externos.</p>
+            <button class="btn" onclick="toggleAnswer('a7')">Mostrar respuesta</button>
+            <div id="a7" class="answer">
+                <p>Respuesta: se verá azul porque el estilo inline tiene mayor especificidad que una regla de clase.
+                </p>
+                <p>Ejemplo:</p>
+                <pre><code>&lt;p class="texto" style="color: blue;"&gt;Este texto se mostrará en azul.&lt;/p&gt;
+</code></pre>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 8 — Usar class para reaplicar estilos</h3>
+            <p>Escribe el HTML y la regla CSS para crear una clase llamada <code>resaltar</code> que ponga fondo
+                amarillo y
+                padding pequeño. Muestra el código.</p>
+            <p class="hint"><strong>Pista:</strong> Define primero la regla CSS con <code>.resaltar { ... }</code> y
+                luego aplica la clase en el HTML con <code>class="resaltar"</code>.</p>
+            <button class="btn" onclick="toggleAnswer('a8')">Mostrar respuesta</button>
+            <div id="a8" class="answer">
+                <p>Respuesta (HTML + CSS):</p>
+                <pre><code>/* CSS */
+.resaltar {
+  background: #fff7c2;
+  padding: 6px 8px;
+  border-radius: 4px;
+}
+
+<!-- HTML -->
+&lt;p class="resaltar"&gt;Texto destacado con la clase resaltar.&lt;/p&gt;
+</code></pre>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 9 — Box-sizing</h3>
+            <p>Explica la diferencia entre <code>box-sizing: content-box</code> y <code>box-sizing: border-box</code> y
+                muestra cómo cambia el cálculo del ancho con un ejemplo corto.</p>
+            <p class="hint"><strong>Pista:</strong> Piensa si el <code>width</code> declarado incluye o no el padding y
+                el borde.</p>
+            <button class="btn" onclick="toggleAnswer('a9')">Mostrar respuesta</button>
+            <div id="a9" class="answer">
+                <p>Respuesta: por defecto (<code>content-box</code>) el <code>width</code> solo incluye el contenido; el
+                    padding y border se suman después. Con <code>border-box</code> el <code>width</code> incluye
+                    padding y border.</p>
+                <p>Ejemplo (si width:200px, padding:10px, border:2px):</p>
+                <pre><code>/* content-box (por defecto): ancho total = 200 + 10 + 10 + 2 + 2 = 224px */
+
+/* border-box: ancho total = 200px (incluye padding y border) */
+div.content-box { box-sizing: content-box; width: 200px; padding:10px; border:2px solid #000; }
+div.border-box { box-sizing: border-box; width: 200px; padding:10px; border:2px solid #000; }
+</code></pre>
+            </div>
+        </section>
+
+        <section class="exercise">
+            <h3>Ejercicio 10 — Crear una tarjeta simple</h3>
+            <p>Escribe el HTML y CSS mínimo para una tarjeta con sombra, padding y borde redondeado. Muestra el código.
+            </p>
+            <p class="hint"><strong>Pista:</strong> Para sombra usa <code>box-shadow</code>, para bordes redondeados
+                <code>border-radius</code>.</p>
+            <button class="btn" onclick="toggleAnswer('a10')">Mostrar respuesta</button>
+            <div id="a10" class="answer">
+                <p>Respuesta (HTML + CSS):</p>
+                <pre><code>/* CSS */
+.card {
+  background: white;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+  max-width: 320px;
+}
+
+/* HTML */
+&lt;div class="card"&gt;
+  &lt;h3&gt;Título de la tarjeta&lt;/h3&gt;
+  &lt;p&gt;Contenido breve dentro de la tarjeta.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+            </div>
+        </section>
+
+        <p style="margin-top:18px;">Volver a la <h2><a href="index.html">página principal</a>.</h2></p>
+        
+        <p style="margin-top:18px;">Volver a la <h2><a href="tl03_auto.html">página preguntas</a>.</h2></p>
+    </main>
+</body>
+
+</html>

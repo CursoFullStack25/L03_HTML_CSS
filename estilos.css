@@ -1,0 +1,82 @@
+/* estilos.css — archivo externo de ejemplo
+   Este archivo acompaña a css_demo.html y muestra reglas para
+   clases (.clase) e ids (#id). Está comentado para estudiantes.
+*/
+
+/* Regla para etiquetas: afecta a todos los párrafos */
+p {
+  color: #222; /* color del texto */
+}
+
+/* Clase: se usa con class="resaltar" o cualquier otro nombre */
+.resaltar {
+  background: #fff7c2; /* fondo suave */
+  border: 1px solid #f0e5a0;
+  color: #5a4720;
+}
+
+/* Otra clase de ejemplo para cambiar la fuente */
+.fancy {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+}
+
+/* Id: debe ser único en la página */
+#unico-ejemplo {
+  padding: 8px;
+  border-left: 4px solid #4b8bf5;
+  background: #f0f8ff;
+}
+
+/* Estilos de ejemplo para mostrar block vs inline */
+.box-block {
+  background: #e9f5ff;
+  border: 1px solid #cfe8ff;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.example-inline {
+  display: inline-block; /* se usa a veces para poder aplicar padding/margin y seguir en línea */
+  background: #fff4e6;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #ffdba8;
+}
+
+/* Estilos para el diagrama del box model */
+.diagram {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #e1e7ee;
+  border-radius: 6px;
+  display: block;
+  margin: 8px 0;
+}
+
+/* Estilos comunes para la página de ejercicios */
+.answer {
+  display: none;
+  background: #f8fff4;
+  border: 1px solid #d7f0d0;
+  padding: 10px;
+  border-radius: 4px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: #4b8bf5;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+/* Puedes cambiar estos valores: color, background, font-size y ver el efecto */
+
+/* Clase para mostrar hvordan centrar texto */
+.centrado {
+  text-align: center;
+}
+
+/* Fin del archivo */
