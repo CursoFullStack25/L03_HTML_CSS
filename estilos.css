@@ -1,9 +1,36 @@
-/* estilos.css — archivo externo de ejemplo
-   Este archivo acompaña a css_demo.html y muestra reglas para
-   clases (.clase) e ids (#id). Está comentado para estudiantes.
+/* estilos.css  archivo externo de ejemplo
+  Este archivo acompaa a css_demo.html y muestra reglas para
+  clases (.clase) e ids (#id). Esta comentado para estudiantes.
 */
 
-/* Regla para etiquetas: afecta a todos los párrafos */
+/* Variables de paleta centralizadas: mover aqu para que todas las pginas
+  que enlacen este archivo tengan acceso a las mismas custom properties. */
+:root {
+  /* Paleta editable: cambia estos valores para probar otra paleta */
+  /* Roles:
+    --c1 : color oscuro principal (texto destacado, ttulos sobre fondos claros)
+    --c2 : color de acento / lado izquierdo del header (acento fuerte)
+    --c3 : color de acento claro / lado derecho del header (acento brillante)
+    --c4 : color suave / fondo de elementos resaltados (cards, badges)
+  */
+  --c1: #7b542f;
+  /* color 1 (oscuro) */
+  --c2: #b6771d;
+  /* color 2 (acento) */
+  --c3: #ff9d00;
+  /* color 3 (acento claro) */
+  --c4: #ffcf71;
+  /* color 4 (suave) */
+  /* variables semnticas (fciles de usar en lugar de hex) */
+  --accent: var(--c3);
+  --soft-bg: var(--c4);
+  --muted: #555;
+  --muted-dark: #333;
+  --page-bg: #f6f9fc;
+  --text-color: #1a1a1a;
+}
+
+/* Regla para etiquetas: afecta a todos los prrafos */
 p {
   color: var(--text-color); /* color del texto */
 }
@@ -77,6 +104,25 @@ p {
 /* Clase para mostrar hvordan centrar texto */
 .centrado {
   text-align: center;
+}
+
+/* Enlaces: usar la paleta en lugar del azul por defecto del navegador. 
+   Excluimos los enlaces que ya usan la clase .btn para no sobrescribir botones. */
+a:not(.btn) {
+  color: var(--c2);
+  text-decoration: underline;
+}
+
+a:not(.btn):visited {
+  color: var(--c1);
+}
+
+a:not(.btn):hover,
+a:not(.btn):focus {
+  color: var(--c3);
+  text-decoration: none;
+  outline: 3px solid var(--c3);
+  outline-offset: 2px;
 }
 
 /* Fin del archivo */
